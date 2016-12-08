@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "taupe250",
   "description": "taupe250",
-  "homepage_url": "https://github.com/mdn/webextensions-examples",
+  "homepage_url": "https://github.com/SwannLV/Files/blob/master/selectors.yml",
   "version": "0.0.1",
   "icons": {
     "48": "icons/icon.png",

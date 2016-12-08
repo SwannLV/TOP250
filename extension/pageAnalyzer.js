@@ -117,10 +117,11 @@ class PageAnalyzer {
           console.log(elems);
           elems.css("border", "4px solid blue");
           
-          elems.click(function(){
+          elems.click(function(e){
             if(cntrlIsPressed){
+              e.preventDefault();
               let title = $(this).text();
-              window.location.href = "http://www.top250.fr/Search?q=" + title;
+              window.location.href = "http://www.top250.fr/Search?q=" + title + "&type=Film";              
             }
           })
       });
