@@ -16,8 +16,8 @@
         [
           "./lib/jquery-3.1.1.min.js",
           "./lib/yaml.min.js",
-          "./selectorsMap.js"/*, 
-          "./substitute.js"*/
+          "./pageAnalyzer.js",
+          "./selectorsMap.js"
         ]
     }
   ]

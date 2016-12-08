@@ -1,7 +1,7 @@
 /*
  * This file is responsible for performing the logic of replacing
  * all occurrences of each mapped word with its emoji counterpart.
- */
+ *
 
 // emojiMap.js defines the 'sortedEmojiMap' variable.
 // Referenced here to reduce confusion.
@@ -9,7 +9,7 @@ const emojiMap = sortedEmojiMap;
 
 /*
  * For efficiency, create a word --> search RegEx Map too.
- */
+ *
 let regexs = new Map();
 for (let word of emojiMap.keys()) {
   // We want a global, case-insensitive replacement.
@@ -24,7 +24,7 @@ for (let word of emojiMap.keys()) {
  *
  * @param  {Node} node    - The target DOM Node.
  * @return {void}         - Note: the emoji substitution is done inline.
- */
+ *
 function replaceText (node) {
   // Setting textContent on a node removes all of its children and replaces
   // them with a single text node. Since we don't want to alter the DOM aside
@@ -91,20 +91,51 @@ observer.observe(document.body, {
   childList: true,
   subtree: true
 });
+*/
 
-/*
 
-http://www.top250.fr/Search?q=
 
-https://gist.github.com/bcardarella/7376550#file-markdown-js
-<div id="content">
-# Welcome
-Hello.  Welcome to my **website**.
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.4.0/showdown.min.js"></script>
-<script>
-var conv = new showdown.Converter();
-var txt = document.getElementById('content').innerHTML;
-console.log(txt);
-document.getElementById('content').innerHTML = conv.makeHtml(txt);
-</script>*/
+class PageAnalyzer {
+
+  constructor(selectorsMap) {
+    this.selectorsMap = selectorsMap;
+    this.host = location.hostname;
+    this.selectors = selectorsMap.get(this.host);
+  }
+
+  get SelectorsMap() {
+    return this.selectorsMap();
+  }
+  
+  Run() {
+     if(this.selectors != undefined && this.selectors.length > 0){
+        console.log(this.selectors);
+        let cntrlIsPressed = false;
+
+        $.each(this.selectors, function(index, selector){
+          let elems = $(selector);
+          console.log(elems);
+          elems.css("border", "4px solid blue");
+          
+          elems.click(function(){
+            if(cntrlIsPressed){
+              let title = $(this).text();
+              window.location.href = "http://www.top250.fr/Search?q=" + title;
+            }
+          })
+      });
+
+      // Ctrl pressed detection :
+      $(document).keydown(function(event){ 
+        if(event.which=="17") 
+          cntrlIsPressed = true; 
+      });
+      $(document).keyup(function(){
+        cntrlIsPressed = false;
+      });
+    }    
+
+  }
+
+}
+
