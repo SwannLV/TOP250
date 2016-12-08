@@ -91,3 +91,20 @@ observer.observe(document.body, {
   childList: true,
   subtree: true
 });
+
+/*
+
+http://www.top250.fr/Search?q=
+
+https://gist.github.com/bcardarella/7376550#file-markdown-js
+<div id="content">
+# Welcome
+Hello.  Welcome to my **website**.
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.4.0/showdown.min.js"></script>
+<script>
+var conv = new showdown.Converter();
+var txt = document.getElementById('content').innerHTML;
+console.log(txt);
+document.getElementById('content').innerHTML = conv.makeHtml(txt);
+</script>*/

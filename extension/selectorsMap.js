@@ -114,3 +114,12 @@ tempArray.sort((pair1, pair2) => {
 
 // Now that the entries are sorted, put them back into a Map.
 let sortedEmojiMap = new Map(tempArray);
+
+
+
+
+
+
+
+
+
