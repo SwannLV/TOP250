@@ -1,7 +1,7 @@
 /*
  * This file contains the Map of word --> emoji substitutions.
  */
-
+/*
 let dictionary = new Map();
 dictionary.set('apple', '🍎');
 dictionary.set('banana', '🍌');
@@ -81,17 +81,17 @@ dictionary.set('woman', '👩');
 dictionary.set('world', '🌎');
 dictionary.set('wow', '😮');
 
-/*
- * After all the dictionary entries have been set, sort them by length.
- *
- * Because iteration over Maps happens by insertion order, this avoids
- * scenarios where words that are substrings of other words get substituted
- * first, leading to the longer word's substitution never triggering.
- * 
- * For example, the 'woman' substitution would never get triggered
- * if the 'man' substitution happens first because the input term 'woman'
- * would become 'wo👨', and the search for 'woman' would not find any matches.
- */
+
+ // After all the dictionary entries have been set, sort them by length.
+ //
+ // Because iteration over Maps happens by insertion order, this avoids
+ // scenarios where words that are substrings of other words get substituted
+ // first, leading to the longer word's substitution never triggering.
+ // 
+ // For example, the 'woman' substitution would never get triggered
+ // if the 'man' substitution happens first because the input term 'woman'
+ // would become 'wo👨', and the search for 'woman' would not find any matches.
+
 let tempArray = Array.from(dictionary);
 tempArray.sort((pair1, pair2) => {
   // Each pair is an array with two entries: a word, and its emoji.
@@ -113,11 +113,14 @@ tempArray.sort((pair1, pair2) => {
 });
 
 // Now that the entries are sorted, put them back into a Map.
-let sortedEmojiMap = new Map(tempArray);
+let sortedEmojiMap = new Map(tempArray);*/
 
 
-
-
+YAML.load('https://raw.githubusercontent.com/SwannLV/Files/master/selectors.yml', function(result)
+{
+    nativeObject = result;
+    console.log(nativeObject);
+});
 
 
 
